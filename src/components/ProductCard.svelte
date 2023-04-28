@@ -15,15 +15,11 @@
     localStorage.setItem("cartItems",JSON.stringify(cartItems));
   };
 </script>
-
-<img src={product.image_url} alt="Color linen saree with zari border"/>
+<img src={product.media.edges[0].node.image.url} alt=""/>
 <p class="id">ID: {product.id}</p>
-<h2>{product.name}</h2>
+<h2>{product.title}</h2>
 <p class="description">{product.description}</p>
 <p class="price">
-  Price: $<s>{product.price}</s> $<span class="sale-price">{product.discount_price}</span>
-</p>
-<p class="discount">
-  Discount: <span class="discount-percentage">{product.discount_percentage}</span>
+  Price:$<span class="sale-price">{product.variants.edges[0].node.price.amount}</span>
 </p>
 <button class="add-to-cart" on:click={handleAddToCart}>Add to Cart</button>
